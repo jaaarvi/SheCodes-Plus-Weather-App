@@ -1,7 +1,91 @@
 body .container {
   font-family: "Nanum Gothic", sans-serif;
+  color: #efefef;
+  width: 940px;
+}
+
+h1 {
+  font-size: 48px;
 }
 
 .main {
-  background-color: #aaaaaa;
+  background: linear-gradient(to left bottom, #dbdbdb, #aaaaaa);
+  border-radius: 10px;
+  padding: 60px 80px 20px;
+  margin: 50px auto;
+}
+
+button.geolocation {
+  float: right;
+}
+
+.current-weather {
+  background: none;
+  border: 4px solid #efefef;
+  border-radius: 10px;
+  padding-top: 20px;
+  padding-left: 20px;
+  width: 380px;
+  height: 250px;
+}
+
+.current-temp {
+}
+
+.icon {
+}
+
+.current {
+  height: 100px;
+}
+
+.temp {
+  font-size: 60px;
+  line-height: 52px;
+}
+
+.desc {
+  font-size: 16px;
+}
+
+.current-details,
+.forecast {
+  background: #efefef;
+  color: #6d7278;
+  padding: 36px;
+  width: 300px;
+  font-size: 13px;
+  border-radius: 10px;
+  border: none;
+}
+
+.current-details {
+  position: relative;
+  top: -50px;
+  height: 220px;
+}
+
+.details-data {
+  width: 200px;
+}
+
+.other-weather {
+  text-align: right;
+}
+
+.units {
+  text-align: center;
+  color: #6d7278;
+  font-size: 13px;
+  position: relative;
+  top: -50px;
+}
+
+.forecast {
+  height: 500px;
+}
+
+.credits {
+  color: #6d7278;
+  font-family: "Nanum Gothic", sans-serif;
 }

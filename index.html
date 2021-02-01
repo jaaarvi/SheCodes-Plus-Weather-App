@@ -19,37 +19,50 @@
     <title>Weather App</title>
   </head>
   <body>
-    <div class="container container-940 main">
+    <div class="container main">
       <div class="row">
         <div class="col-7">
           <h1>Chicago</h1>
           <button class="geolocation">current location</button>
           <br />
-          <span class="time">10:00</span>
-          <div class="container">
-            <div class="row">
-              <div class="col">
+          <div class="card current-weather mx-auto">
+            <span class="time">10:00</span><br />
+            <div
+              class="row clearfix position-absolute top-50 start-50 translate-middle"
+            >
+              <div class="col icon p-0 m-0">
                 <img
                   src="https://openweathermap.org/img/wn/01d@2x.png"
-                  alt="Orange-red sun icon"
+                  alt="Orange sun icon"
+                  class="float-end"
                 />
               </div>
-              <div class="col">
+              <div class="col current float-start p-0 m-0">
                 <span class="temp">21°</span><br />
                 <span class="desc">clear skies</span>
               </div>
             </div>
           </div>
-          <div class="container">
-            high <span class="high-temp">24</span>°<br />
-            low <span class="low-temp">16</span>°<br />
-            <br />
-            precipitation <span class="precip">30</span>%<br />
-            humidity <span class="humid">25</span>%<br />
-            wind speed <span class="wind">2</span>km/h
+          <div class="card current-details mx-auto">
+            <div
+              class="details-data position-absolute top-50 start-50 translate-middle"
+            >
+              <div class="high-low">
+                high <span class="high-temp">24</span>°<br />
+                low <span class="low-temp">16</span>°<br />
+              </div>
+              <br />
+              <div class="other-weather">
+                <span class="precip">30</span>% precipitation <br />
+                <span class="humid">25</span>% humidity <br />
+                <span class="wind">2</span>km/h wind speed
+              </div>
+            </div>
           </div>
-          <span class="celsius-link">celsius</span> /
-          <span class="fahrenheit-link">fahrenheit</span>
+          <div class="units">
+            <a href="#" class="celsius-link">celsius</a> /
+            <a href="#" class="fahrenheit-link">fahrenheit</a>
+          </div>
         </div>
         <div class="col-5">
           <form action="" class="search">
@@ -57,7 +70,7 @@
             <input type="submit" value="search" />
           </form>
           <br />
-          <div class="container">
+          <div class="card forecast">
             <div class="row">
               <div class="col">
                 <span class="time">12:00</span>
@@ -127,6 +140,7 @@
         </div>
       </div>
     </div>
+    <span class="credits">Open-source code by Jes Jarvinen</span>
     <script src="src/script.js"></script>
   </body>
 </html>
