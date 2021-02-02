@@ -9,13 +9,18 @@
       integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="src/style.css" />
+
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/0fb5dcd57d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="src/style.css" />
     <title>Weather App</title>
   </head>
   <body>
@@ -23,7 +28,9 @@
       <div class="row">
         <div class="col-7">
           <h1>Chicago</h1>
-          <button class="geolocation">current location</button>
+          <button class="geolocation btn btn-outline-light">
+            <i class="fas fa-location-arrow"></i>
+          </button>
           <br />
           <div class="card current-weather mx-auto">
             <span class="time">10:00</span><br />
@@ -65,76 +72,87 @@
           </div>
         </div>
         <div class="col-5">
-          <form action="" class="search">
-            <input type="text" placeholder="city" />
-            <input type="submit" value="search" />
-          </form>
+          <div class="input-group mb-3 search-form">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="city"
+              id="search-input"
+            />
+            <button
+              class="btn btn-outline-light"
+              type="button"
+              id="search-button"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
           <br />
           <div class="card forecast">
-            <div class="row">
+            <div class="row forecast-row">
               <div class="col">
-                <span class="time">12:00</span>
+                <span class="forecast-time">12:00</span>
               </div>
               <div class="col">
                 <img
                   src="https://openweathermap.org/img/wn/01d@2x.png"
                   alt="Orange-red sun icon"
-                  class="icon"
+                  class="forecast-icon"
                 />
               </div>
-              <div class="col f-temp"><span class="f-temp">21</span>°</div>
+              <div class="col"><span class="forecast-temp">21</span></div>
             </div>
-            <div class="row">
+            <div class="row forecast-row">
               <div class="col">
-                <span class="time">12:00</span>
+                <span class="forecast-time">12:00</span>
               </div>
               <div class="col">
                 <img
                   src="https://openweathermap.org/img/wn/01d@2x.png"
                   alt="Orange-red sun icon"
-                  class="icon"
+                  class="forecast-icon"
                 />
               </div>
-              <div class="col f-temp"><span class="f-temp">21</span>°</div>
+              <div class="col"><span class="forecast-temp">21</span></div>
             </div>
-            <div class="row">
+            <div class="row forecast-row">
               <div class="col">
-                <span class="time">12:00</span>
+                <span class="forecast-time">12:00</span>
               </div>
               <div class="col">
                 <img
                   src="https://openweathermap.org/img/wn/01d@2x.png"
                   alt="Orange-red sun icon"
-                  class="icon"
+                  class="forecast-icon"
                 />
               </div>
-              <div class="col f-temp"><span class="f-temp">21</span>°</div>
+              <div class="col"><span class="forecast-temp">21</span></div>
             </div>
-            <div class="row">
+            <div class="row forecast-row">
               <div class="col">
-                <span class="time">12:00</span>
+                <span class="forecast-time">12:00</span>
               </div>
               <div class="col">
                 <img
                   src="https://openweathermap.org/img/wn/01d@2x.png"
                   alt="Orange-red sun icon"
-                  class="icon"
+                  class="forecast-icon"
                 />
               </div>
-              <div class="col f-temp"><span class="f-temp">21</span>°</div>
+              <div class="col"><span class="forecast-temp">21</span></div>
             </div>
-            <div class="row">
+            <div class="row forecast-row">
               <div class="col">
-                <span class="time">12:00</span>
+                <span class="forecast-time">12:00</span>
               </div>
               <div class="col">
                 <img
                   src="https://openweathermap.org/img/wn/01d@2x.png"
                   alt="Orange-red sun icon"
-                  class="icon"
+                  class="forecast-icon"
                 />
               </div>
-              <div class="col f-temp"><span class="f-temp">21</span>°</div>
+              <div class="col"><span class="forecast-temp">21</span></div>
             </div>
           </div>
         </div>

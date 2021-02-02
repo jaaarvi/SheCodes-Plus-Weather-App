@@ -16,7 +16,6 @@ h1 {
 }
 
 button.geolocation {
-  float: right;
 }
 
 .current-weather {
@@ -81,8 +80,35 @@ button.geolocation {
   top: -50px;
 }
 
+/* find adjustment for BS presets: colors, radius */
+.search-form {
+  color: #6d7278;
+  height: 38px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+.search-input {
+  border-radius: 8px;
+}
+
 .forecast {
-  height: 500px;
+  height: 480px;
+}
+
+.forecast-row {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.forecast-time,
+.forecast-temp {
+  position: relative;
+  top: 30px;
+}
+
+.forecast-icon {
+  width: 80px;
 }
 
 .credits {
