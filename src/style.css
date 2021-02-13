@@ -43,6 +43,7 @@ button.geolocation:hover {
 
 .current-temp {
   height: 100px;
+  width: 120px;
 }
 
 .icon {
@@ -141,7 +142,6 @@ button.geolocation:hover {
 .credits {
   color: #6d7278;
   font-family: "Nanum Gothic", sans-serif;
-  font-size: 13px;
 }
 
 .github-source {
