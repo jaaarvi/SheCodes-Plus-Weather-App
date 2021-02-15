@@ -1,9 +1,23 @@
 function updateWeather(response) {
   console.log(response.data);
+  let iconCode = response.data.weather[0].icon;
+  let currentIcon = document.querySelector("#current-icon");
   let currentTemp = document.querySelector("#temp");
   currentTemp.innerHTML = Math.round(response.data.main.temp) + "°";
   let currentDesc = document.querySelector("#desc");
   currentDesc.innerHTML = response.data.weather[0].description;
+  currentIcon.innerHTML = `<img
+                  src="https://openweathermap.org/img/wn/${iconCode}@2x.png"
+                  alt="${currentDesc}"
+                  />`;
+  let feelsLike = document.querySelector("#feels-like");
+  feelsLike.innerHTML = Math.round(response.data.main.feels_like);
+  let currentPress = document.querySelector("#pressure");
+  currentPress.innerHTML = response.data.main.pressure;
+  let currentHumid = document.querySelector("#humid");
+  currentHumid.innerHTML = response.data.main.humidity;
+  let currentWind = document.querySelector("#wind");
+  currentWind.innerHTML = response.data.wind.speed;
 }
 
 function getWeather(val) {

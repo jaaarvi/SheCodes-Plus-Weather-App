@@ -41,16 +41,9 @@
             <div
               class="row clearfix position-absolute top-50 start-50 translate-middle"
             >
-              <div class="col icon p-0 m-0">
-                <img
-                  src="https://openweathermap.org/img/wn/01d@2x.png"
-                  alt="Orange sun icon"
-                  class="float-end"
-                />
-              </div>
-              <div class="col current-temp float-start p-0 m-0">
+              <div class="col-3" id="current-icon"></div>
+              <div class="col-9 current-temp">
                 <span class="temp" id="temp"></span><br />
-                <span class="desc" id="desc">clear skies</span>
               </div>
             </div>
           </div>
@@ -58,15 +51,15 @@
             <div
               class="details-data position-absolute top-50 start-50 translate-middle"
             >
-              <div class="high-low">
-                high <span class="high-temp">24</span>°<br />
-                low <span class="low-temp">16</span>°<br />
+              <div class="other-details">
+                <span id="desc"></span><br />
+                feels like <span id="feels-like"></span>°<br />
               </div>
               <br />
               <div class="other-weather">
-                <span class="precip">30</span>% precipitation <br />
-                <span class="humid">25</span>% humidity <br />
-                <span class="wind">2</span>km/h wind speed
+                <span id="pressure"></span> hPa pressure <br />
+                <span id="humid"></span>% humidity <br />
+                <span id="wind"></span> m/s wind speed
               </div>
             </div>
           </div>
