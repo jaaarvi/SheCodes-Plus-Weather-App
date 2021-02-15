@@ -1,5 +1,5 @@
+//Update interface with current weather
 function updateWeather(response) {
-  console.log(response.data);
   let iconCode = response.data.weather[0].icon;
   let currentIcon = document.querySelector("#current-icon");
   let currentTemp = document.querySelector("#temp");
@@ -17,9 +17,36 @@ function updateWeather(response) {
   let currentHumid = document.querySelector("#humid");
   currentHumid.innerHTML = response.data.main.humidity;
   let currentWind = document.querySelector("#wind");
-  currentWind.innerHTML = response.data.wind.speed;
+  currentWind.innerHTML = Math.round(response.data.wind.speed);
+
+  showLocation(response.data.name);
+  getTime(response.data.dt);
 }
 
+//Update time
+function getTime(val) {
+  let now = new Date(val * 1000);
+
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  let day = days[now.getDay()];
+  let hour = now.getHours();
+  let minutes = now.getMinutes();
+
+  let currentTime = document.querySelector("#current-time");
+  currentTime.innerHTML = `${day} ${hour}:${minutes}`;
+}
+
+//Update location
+function showLocation(val) {
+  let location = document.querySelector("#location");
+  location.innerHTML = val;
+}
+
+//Search form function
+
+//Geolocation button function
+
+//Get weather by city value
 function getWeather(val) {
   let apiKey = "841177f590ddad9bbbcdad145d970953";
   let city = val;

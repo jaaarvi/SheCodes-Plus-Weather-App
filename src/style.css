@@ -31,6 +31,10 @@ button.geolocation:hover {
   color: #6d7278;
 }
 
+.time {
+  font-size: 13px;
+}
+
 .current-weather {
   background: none;
   border: 2px solid #efefef;
@@ -56,7 +60,6 @@ button.geolocation:hover {
 }
 
 .desc {
-  font-size: 16px;
 }
 
 .current-details,
