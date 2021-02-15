@@ -9,7 +9,7 @@ h1 {
 }
 
 .main {
-  background: linear-gradient(to left bottom, #dbdbdb, #aaaaaa);
+  background: linear-gradient(to left bottom, #c8c8c8, #939393);
   border-radius: 10px;
   margin: 50px auto;
   padding: 60px 80px 20px;
@@ -33,6 +33,7 @@ button.geolocation:hover {
 
 .time {
   font-size: 13px;
+  font-weight: 700;
 }
 
 .current-weather {
@@ -56,7 +57,7 @@ button.geolocation:hover {
   line-height: 52px;
   position: relative;
   top: 24px;
-  left: 10px;
+  left: 36px;
 }
 
 .desc {
@@ -88,7 +89,7 @@ button.geolocation:hover {
 }
 
 .units {
-  color: #6d7278;
+  color: #efefef;
   font-size: 13px;
   position: relative;
   text-align: center;
@@ -96,12 +97,12 @@ button.geolocation:hover {
 }
 
 .units a {
-  color: #6d7278;
+  color: #efefef;
   cursor: default;
   text-decoration: none;
 }
 
-.search-form {
+#search-form {
   height: 38px;
   width: 300px;
 }
@@ -113,11 +114,11 @@ button.geolocation:hover {
   color: #6d7278;
 }
 
-.search-form button {
+#search-form button {
   border: 2px solid #efefef;
 }
 
-.search-form button:hover {
+#search-form button:hover {
   background: #efefef;
   border: 2px solid #efefef;
   color: #6d7278;
@@ -133,7 +134,7 @@ button.geolocation:hover {
   margin-right: auto;
 }
 
-.forecast-time,
+.forecast-day,
 .forecast-temp {
   position: relative;
   top: 30px;
