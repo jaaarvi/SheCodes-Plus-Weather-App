@@ -30,6 +30,7 @@ function updateForecast(response) {
   let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
   let day = null;
   let forecastDisplay = document.querySelector(".forecast");
+  forecastDisplay.innerHTML = null;
 
   for (let index = 0; index < 5; index++) {
   forecast = response.data.daily[index];
