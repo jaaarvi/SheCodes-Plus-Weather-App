@@ -1,5 +1,6 @@
 //Update interface with current weather
 function updateWeather(response) {
+  console.log(response);
   let iconCode = response.data.weather[0].icon;
   let currentIcon = document.querySelector("#current-icon");
   let currentTemp = document.querySelector("#temp");
@@ -17,7 +18,6 @@ function updateWeather(response) {
   let currentWind = document.querySelector("#wind");
   currentWind.innerHTML = Math.round(response.data.wind.speed);
 
-  console.log(response.data);
   showLocation(response.data.name);
   getTime(response.data.dt);
   getForecast(response.data.coord.lat, response.data.coord.lon);
@@ -37,21 +37,21 @@ function updateForecast(response) {
   date = new Date(forecast.dt * 1000);
   day = days[date.getDay()];
   forecastDisplay.innerHTML += `<div class="row" id="forecast-row">
-                              <div class="col">
-                                <span class="forecast-day">${day}</span>
-                              </div>
-                              <div class="col">
-                                <img
-                                  src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
-                                  alt="${forecast.weather[0].description}"
-                                  class="forecast-icon"
-                                />
-                              </div>
-                              <div class="col"><span class="forecast-temp">
-                                high ${Math.round(forecast.temp.max)}°<br />
-                                low ${Math.round(forecast.temp.min)}</span>
-                              </div>
-                            </div>`;
+                                  <div class="col-3">
+                                    <span class="forecast-day">${day}</span>
+                                  </div>
+                                  <div class="col-3">
+                                    <img
+                                      src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+                                      alt="${forecast.weather[0].description}"
+                                      class="forecast-icon"
+                                    />
+                                  </div>
+                                  <div class="col-6 text-end"><span class="forecast-temp">
+                                    high ${Math.round(forecast.temp.max)}°<br />
+                                    low ${Math.round(forecast.temp.min)}°</span>
+                                  </div>
+                                </div>`;
   }
 
 }
@@ -70,8 +70,8 @@ function getForecast(latitude, longitude) {
 }
 
 //Update time
-function getTime(val) {
-  let now = new Date(val * 1000);
+function getTime(timestamp) {
+  let now = new Date(timestamp * 1000);
 
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
   let day = days[now.getDay()];
@@ -100,7 +100,7 @@ function getWeather(val) {
   axios.get(apiUrl).then(updateWeather);
 }
 
-//Search form function
+//Search form function 
 function searchLocation(event) {
   event.preventDefault();
 
@@ -115,8 +115,27 @@ searchInput.addEventListener("submit", searchLocation);
 let searchButton = document.querySelector("#search-button");
 searchButton.addEventListener("click", searchLocation);
 
-//Geolocation button function
+//Geolocation functions
+function getGeoWeather(position) {
+  let apiKey = "841177f590ddad9bbbcdad145d970953";
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let units = "metric";
+  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
 
+  let apiUrl = `${apiEndpoint}?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
+
+  console.log(position);
+
+  axios.get(apiUrl).then(updateWeather);
+}
+
+function geoLocate() {
+  navigator.geolocation.getCurrentPosition(getGeoWeather);
+}
+
+let geoButton = document.querySelector("#geo-button");
+geoButton.addEventListener("click", geoLocate);
 
 //Intial load in
-getWeather("Chicago");
+getWeather("New York");

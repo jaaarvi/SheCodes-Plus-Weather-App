@@ -134,14 +134,19 @@ button.geolocation:hover {
   margin-right: auto;
 }
 
-.forecast-day,
-.forecast-temp {
+.forecast-day {
   position: relative;
   top: 30px;
 }
 
 .forecast-icon {
   width: 80px;
+}
+
+.forecast-temp {
+  text-align: right;
+  position: relative;
+  top: 20px;
 }
 
 .credits {
