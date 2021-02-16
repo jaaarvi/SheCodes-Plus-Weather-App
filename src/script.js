@@ -32,7 +32,7 @@ function updateForecast(response) {
   let forecastDisplay = document.querySelector(".forecast");
   forecastDisplay.innerHTML = null;
 
-  for (let index = 0; index < 5; index++) {
+  for (let index = 1; index < 6; index++) {
   forecast = response.data.daily[index];
   date = new Date(forecast.dt * 1000);
   day = days[date.getDay()];
@@ -62,7 +62,14 @@ function getForecast(latitude, longitude) {
   let lat = latitude;
   let lon = longitude;
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/onecall";
-  let units = "metric";
+
+  let celsius = document.querySelector(".celsius-link");
+  if (celsius.classList.contains("inactive")) {
+    units = "imperial";
+  } else {
+    units = "metric";
+  };
+  
 
   let apiUrl = `${apiEndpoint}?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
 
@@ -79,7 +86,12 @@ function getTime(timestamp) {
   let minutes = now.getMinutes();
 
   let currentTime = document.querySelector("#current-time");
+
+  if (minutes < 10) {
+  currentTime.innerHTML = `${day} ${hour}:0${minutes}`;
+  } else {
   currentTime.innerHTML = `${day} ${hour}:${minutes}`;
+  }
 }
 
 //Update location
@@ -92,7 +104,15 @@ function showLocation(val) {
 function getWeather(val) {
   let apiKey = "841177f590ddad9bbbcdad145d970953";
   let city = val;
-  let units = "metric";
+  let units = "";
+  
+  let celsius = document.querySelector(".celsius-link");
+  if (celsius.classList.contains("inactive")) {
+    units = "imperial";
+  } else {
+    units = "metric";
+  };
+
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
 
   let apiUrl = `${apiEndpoint}?q=${city}&units=${units}&appid=${apiKey}`;
@@ -120,7 +140,15 @@ function getGeoWeather(position) {
   let apiKey = "841177f590ddad9bbbcdad145d970953";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let units = "metric";
+  let units = "";
+  
+  let celsius = document.querySelector(".celsius-link");
+  if (celsius.classList.contains("inactive")) {
+    units = "imperial";
+  } else {
+    units = "metric";
+  };
+
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
 
   let apiUrl = `${apiEndpoint}?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
@@ -136,6 +164,32 @@ function geoLocate() {
 
 let geoButton = document.querySelector("#geo-button");
 geoButton.addEventListener("click", geoLocate);
+
+//Unit conversion
+function switchToFahrenheit(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("inactive");
+  fahrenheitLink.classList.remove("inactive");
+
+  let location = document.querySelector("h1");
+
+  getWeather(location.innerHTML);
+}
+
+function switchToCelsius(event) {
+  event.preventDefault();
+  fahrenheitLink.classList.add("inactive");
+  celsiusLink.classList.remove("inactive");
+
+  let location = document.querySelector("h1");
+
+  getWeather(location.innerHTML);
+}
+
+let fahrenheitLink = document.querySelector(".fahrenheit-link");
+fahrenheitLink.addEventListener("click", switchToFahrenheit);
+let celsiusLink = document.querySelector(".celsius-link");
+celsiusLink.addEventListener("click", switchToCelsius);
 
 //Intial load in
 getWeather("New York");

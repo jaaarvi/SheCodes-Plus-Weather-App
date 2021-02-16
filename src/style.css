@@ -102,6 +102,11 @@ button.geolocation:hover {
   text-decoration: none;
 }
 
+a.inactive {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 #search-form {
   height: 38px;
   width: 300px;
